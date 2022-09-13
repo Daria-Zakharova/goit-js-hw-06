@@ -12,3 +12,18 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryEl= document.querySelector('.gallery');
+const galleryItems = images.reduce((str, img) => str += `<li class="gallery__item"> <img class="gallery__img" src="${img.url}" alt = "${img.alt}"> </li>`, '');
+galleryEl.insertAdjacentHTML('afterbegin', galleryItems);
+
+
+// // Налаштуваня висоти за найменшою картинкою
+function setEqualHeight(selector) {
+  const heights = [];
+  const elements = document.querySelectorAll(selector);
+  elements.forEach(item => heights.push(item.offsetHeight));
+  elements.forEach(item => item.style.height = Math.min(...heights)+"px");
+}
+
+setEqualHeight('.gallery__img');
