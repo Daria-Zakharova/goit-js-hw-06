@@ -33,20 +33,17 @@ const boxCreator = {
   animateBoxes() {
     const boxesList = [...document.querySelectorAll('.box')];
     const amount = this.refs.counter.value;
+    
     let delay = 0;
-    let duration = 200 + (amount*20);
-    let counter = 1;
-    console.log(`initial delay ${delay}\nduration ${duration}`);
+    let duration = 200 + (amount * 20);
+    
     boxesList.reverse().forEach(item => {
       item.classList.add('swing-in-bottom-fwd');
       item.style.animationDelay = `${delay}ms`;
-
       item.style.animationDuration = `${duration}ms`;
       
       duration -= 20;
       delay += duration;
-      counter++;
-      console.log(`${counter} delay ${delay}\nduration ${duration}`);
     })
   },
 
