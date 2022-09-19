@@ -15,5 +15,12 @@ const images = [
 
 const galleryEl = document.querySelector('.gallery');
 const galleryItems = images.reduce((str, img, i) =>
-  str += `<li> <img class="gallery__img" src="${img.url}" alt = "${img.alt}"> </li>`, '');
+  str += `<li> <img class="gallery__img" src="${img.url}" alt = "${img.alt}" height = "${setEqualHeights()}"> </li>`, '');
 galleryEl.insertAdjacentHTML('afterbegin', galleryItems);
+
+function setEqualHeights() {
+  const pageWidth = window.innerWidth;
+  //4.8777 - сума відношень ширин до висот для картинок у прикладі, тобто при висоті х для кожного зображення вони повинні мати ширину 1.7778х, 1.5х і 1.51х відповідно
+  const imgHeight = pageWidth / 4.7878;
+  return imgHeight;
+}
