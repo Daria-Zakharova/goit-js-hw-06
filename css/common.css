@@ -31,14 +31,14 @@ img {
   display: flex;
   margin: 0;
   padding: 0;  
-  list-style: none;  
-  max-width: 100vw;
+  list-style: none; 
 }
 
 .gallery__img {
-  
-  height: 100%;
-  max-width: 100%;
+  /* 4.8778 - сума відношень ширин до висот для картинок у прикладі,
+    тобто при висоті х для кожного зображення вони повинні мати ширину 1.7778х,
+    1.5х і 1.51х відповідно */
+  height: calc(100vw / 4.8778);
 }
 
 #boxes {
